@@ -100,7 +100,7 @@ spec:
     spec:
       serviceAccountName: "eirini-annotate-extension"
       containers:
-      - image: kansal-mukul/eirinix-annotate:latest
+      - image: mukulk/eirinix-annotate:latest
         name: eirini-annotate-extension
         imagePullPolicy: IfNotPresent
         env:
