@@ -5,7 +5,7 @@ import (
 	"os"
 
 	eirinix "github.com/SUSE/eirinix"
-	annotate "github.com/drnic/eirinix-annotate/annotate"
+	annotate "github.com/kansal-mukul/eirinix-annotate/annotate"
 )
 
 func main() {
