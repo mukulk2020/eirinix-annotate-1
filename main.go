@@ -9,7 +9,7 @@ import (
 )
 
 func main() {
-	fmt.Println("Running kansal-mukul/eirinix-annotate...")
+	fmt.Println("Running kansal-mukulsfdfdfdfdf/eirinix-annotate...")
 	options := eirinix.ManagerOptions{
 		Namespace:           os.Getenv("POD_NAMESPACE"),
 		Host:                "0.0.0.0",
