@@ -102,7 +102,7 @@ spec:
       containers:
       - image: mukulk/eirinix-annotate:latest
         name: eirini-annotate-extension
-        imagePullPolicy: IfNotPresent
+        imagePullPolicy: Always
         env:
         - name: WEBHOOK_SERVICE_NAME
           value: eirini-annotate-extension-service
