@@ -1,4 +1,4 @@
-module github.com/drnic/eirinix-helloworld
+module github.com/kansal-mukul/eirinix-annotate
 
 go 1.13
 
