@@ -16,7 +16,7 @@ func main() {
 		Port:                4545,
 		ServiceName:         os.Getenv("WEBHOOK_SERVICE_NAME"),
 		WebhookNamespace:    os.Getenv("WEBHOOK_NAMESPACE"),
-		OperatorFingerprint: "eirini-x-drnic-helloworld",
+		OperatorFingerprint: "eirini-x-kansal-mukul-annotate",
 	}
 	fmt.Printf("--> %#v\n", options)
 	x := eirinix.NewManager(options)
