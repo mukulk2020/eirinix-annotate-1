@@ -30,7 +30,8 @@ func (ext *Extension) Handle(ctx context.Context, eiriniManager eirinix.Manager,
 	ext.Logger = log
 
 	podCopy := pod.DeepCopy()
-	log.Infof("Hello from my Eirini extension! Eirini application POD: %s (%s)", podCopy.Name, podCopy.Namespace)
+	log.Infof("Hello from my Testing ************** extension! Eirini application POD: %s (%s)", podCopy.Name, podCopy.Namespace)
+	log.Infof("Hello from my Testing ************** extension! Eirini application POD: %s (%s)", podCopy, podCopy.Annotations)
 	for i := range podCopy.Spec.Containers {
 		c := &podCopy.Spec.Containers[i]
 		c.Env = append(c.Env, corev1.EnvVar{Name: "STICKY_MESSAGE", Value: "Eirinix is awesome!"})
