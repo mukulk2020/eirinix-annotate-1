@@ -1,6 +1,6 @@
 FROM golang
 WORKDIR /tmp/build
-RUN git clone https://github.com/kansal-mukul/eirinix-annotate.git && \
+RUN git clone https://github.com/kansal-mukul/eirinix-annotate && \
     cd eirinix-annotate && \
     go build
 
