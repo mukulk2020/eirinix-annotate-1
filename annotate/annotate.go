@@ -32,6 +32,8 @@ func (ext *Extension) Handle(ctx context.Context, eiriniManager eirinix.Manager,
 	podCopy := pod.DeepCopy()
 	log.Infof("Hello from my Testing ************** extension! Eirini application POD: %s (%s)", podCopy.Name, podCopy.Namespace)
 	log.Infof("Hello from my Testing ************** extension! Eirini application POD: %s ", podCopy.Annotations)
+	podCopy.Annotations["my-annototation"]="test-annotation"
+	log.Infof("After from my Testing ************** extension! Eirini application POD: %s ", podCopy.Annotations)
 	
 	for i := range podCopy.Spec.Containers {
 		c := &podCopy.Spec.Containers[i]
