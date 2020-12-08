@@ -8,7 +8,7 @@ items:
     kind: ClusterRole
     metadata:
       creationTimestamp: null
-      name: "eirini-helloworld-extension"
+      name: "eirini-annotate-extension"
     rules:
     - apiGroups:
       - '*'
@@ -19,41 +19,41 @@ items:
   - kind: ClusterRoleBinding
     apiVersion: rbac.authorization.k8s.io/v1
     metadata:
-      name: "eirini-helloworld-extension"
+      name: "eirini-annotate-extension"
       namespace: "scf"
     roleRef:
       kind: ClusterRole
-      name: "eirini-helloworld-extension"
+      name: "eirini-annotate-extension"
       apiGroup: rbac.authorization.k8s.io
     subjects:
     - kind: ServiceAccount
-      name: "eirini-helloworld-extension"
+      name: "eirini-annotate-extension"
       namespace: "scf"
 ---
 apiVersion: v1
 kind: ServiceAccount
 metadata:
-  name: "eirini-helloworld-extension"
+  name: "eirini-annotate-extension"
   namespace: scf
 ---
 kind: RoleBinding
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
-  name: eirini-helloworld-extension
+  name: eirini-annotate-extension
   namespace: scf
 subjects:
 - kind: ServiceAccount
-  name: eirini-helloworld-extension
+  name: eirini-annotate-extension
 roleRef:
   kind: Role
-  name: eirini-helloworld-extension
+  name: eirini-annotate-extension
   apiGroup: rbac.authorization.k8s.io
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
 metadata:
   creationTimestamp: null
-  name: eirini-helloworld-extension
+  name: eirini-annotate-extension
   namespace: scf
 rules:
 - apiGroups:
@@ -73,11 +73,11 @@ rules:
 apiVersion: v1
 kind: Service
 metadata:
-  name: eirini-helloworld-extension-service
+  name: eirini-annotate-extension-service
   namespace: scf
 spec:
   selector:
-    app: eirini-helloworld-extension
+    app: eirini-annotate-extension
   ports:
   - protocol: TCP
     port: 443
@@ -86,26 +86,26 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: eirini-helloworld-extension
+  name: eirini-annotate-extension
   namespace: scf
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: eirini-helloworld-extension
+      app: eirini-annotate-extension
   template:
     metadata:
       labels:
-        app: eirini-helloworld-extension
+        app: eirini-annotate-extension
     spec:
-      serviceAccountName: "eirini-helloworld-extension"
+      serviceAccountName: "eirini-annotate-extension"
       containers:
-      - image: drnic/eirinix-helloworld:latest
-        name: eirini-helloworld-extension
+      - image: kansal-mukul/eirinix-annotate:latest
+        name: eirini-annotate-extension
         imagePullPolicy: IfNotPresent
         env:
         - name: WEBHOOK_SERVICE_NAME
-          value: eirini-helloworld-extension-service
+          value: eirini-annotate-extension-service
         - name: WEBHOOK_NAMESPACE
           value: scf
         - name: POD_NAMESPACE

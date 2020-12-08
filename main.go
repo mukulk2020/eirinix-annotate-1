@@ -5,11 +5,11 @@ import (
 	"os"
 
 	eirinix "github.com/SUSE/eirinix"
-	helloworld "github.com/drnic/eirinix-helloworld/hello"
+	annotate "github.com/drnic/eirinix-annotate/annotate"
 )
 
 func main() {
-	fmt.Println("Running drnic/eirinix-helloworld...")
+	fmt.Println("Running kansal-mukul/eirinix-annotate...")
 	options := eirinix.ManagerOptions{
 		Namespace:           os.Getenv("POD_NAMESPACE"),
 		Host:                "0.0.0.0",
@@ -20,6 +20,6 @@ func main() {
 	}
 	fmt.Printf("--> %#v\n", options)
 	x := eirinix.NewManager(options)
-	x.AddExtension(&helloworld.Extension{})
+	x.AddExtension(&annotate.Extension{})
 	x.Start()
 }
