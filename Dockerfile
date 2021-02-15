@@ -1,8 +1,15 @@
 FROM golang
-WORKDIR /tmp/build1
 
-RUN git clone https://github.com/kansal-mukul/eirinix-annotate && \
-    cd eirinix-annotate && \
-    go build
+ENV PRODUCT_ID=1234
+ENV PRODUCT_METRIC=VIRTUAL_PROCESSOR_CORE_TEST
+ENV PRODUCT_NAME="my_pRODUCT"
+ENV PRODUCT_VERSION="1.0"
+ENV PRODUCT_CHARGED_CONTAINERS=ALL
 
-ENTRYPOINT ["/tmp/build1/eirinix-annotate/eirinix-annotate"]
+WORKDIR /tmp/build
+
+COPY ./ .
+COPY ./ /usr/local/go/src/eirinix-annotate/
+RUN go build && \
+ls
+ENTRYPOINT ["/tmp/build/eirinix-annotate"]
