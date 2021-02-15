@@ -1,4 +1,4 @@
-module github.com/kansal-mukul/eirinix-annotate
+module github.com/eirinix-annotate
 
 go 1.13
 
@@ -7,4 +7,3 @@ require (
 	go.uber.org/zap v1.10.0
 	k8s.io/api v0.0.0-20190409021203-6e4e0e4f393b
 	sigs.k8s.io/controller-runtime v0.2.0
-)
