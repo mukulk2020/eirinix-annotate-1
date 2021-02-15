@@ -22,14 +22,14 @@ func New() eirinix.Extension {
 
 // Handle manages volume claims for ExtendedStatefulSet pods
 func (ext *Extension) Handle(ctx context.Context, eiriniManager eirinix.Manager, pod *corev1.Pod, req admission.Request) admission.Response {
-
+        log := eiriniManager.GetLogger().Named("Annotation Starts!!")
+	ext.Logger = log
+	log.infof(".......................Eirini extension called successfully........................")
 	if pod == nil {
 		return admission.Errored(http.StatusBadRequest, errors.New("No pod could be decoded from the request"))
 	}
 
-	log := eiriniManager.GetLogger().Named("Annotation Starts!!")
-	ext.Logger = log
-
+	
 	podCopy := pod.DeepCopy()
 	log.Infof("POD Details: %s (%s)", podCopy.Name, podCopy.Namespace)
         log.Infof("PRODUCT_ID and PRODUCT_NAME Env Variables values are: %s (%s)", os.Getenv("PRODUCT_ID"), os.Getenv("PRODUCT_NAME"))
