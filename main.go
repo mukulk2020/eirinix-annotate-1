@@ -5,17 +5,17 @@ import (
 	"os"
 
 	eirinix "github.com/SUSE/eirinix"
-	annotate "github.com/kansal-mukul/eirinix-annotate/annotate"
+	annotate "eirinix-annotate/annotate"
 )
 
 func main() {
-	fmt.Println("Running kansal-mukulsfdfdfdfdf/eirinix-annotate...")
+	fmt.Println("Running eirinix-annotate...")
 	options := eirinix.ManagerOptions{
 		Namespace:           os.Getenv("POD_NAMESPACE"),
 		Host:                "0.0.0.0",
 		Port:                4545,
 		ServiceName:         os.Getenv("WEBHOOK_SERVICE_NAME"),
-		WebhookNamespace:    os.Getenv("WEBHOOK_NAMESPACE"),		
+		WebhookNamespace:    os.Getenv("WEBHOOK_NAMESPACE"),
 	}
 	fmt.Printf("--> %#v\n", options)
 	x := eirinix.NewManager(options)
